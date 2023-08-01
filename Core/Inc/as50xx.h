@@ -24,10 +24,10 @@
 /**
   * @brief  Read encoder data into given var
   * @param  given variable by ref
-  * @param  timeout Timeout duration (optional)
+  * @param  timeout Timeout duration
   * @retval bool status
   */
-uint16_t as50_read(uint32_t timeout);
+bool as50_read(uint16_t * data, uint32_t timeout);
 
 #ifdef __cplusplus
 extern "C" {

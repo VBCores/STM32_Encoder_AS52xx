@@ -102,7 +102,7 @@ int main(void)
   while (1)
   {
 
-	  ang = as50_read(100);
+	  as50_read(&ang, 100);
 	  sprintf(str,"angle: %d \n \r ", ang);
 	  HAL_UART_Transmit_IT(&huart2, str, 22);
 	  HAL_Delay(100);
