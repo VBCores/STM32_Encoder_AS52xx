@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "i2c.h"
 #include "spi.h"
 #include "usart.h"
 #include "gpio.h"
@@ -87,13 +86,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_I2C4_Init();
   MX_USART2_UART_Init();
   MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
 
   uint16_t ang;
   uint8_t str[100];
+  int i = 0;
 
   /* USER CODE END 2 */
 
@@ -102,11 +101,19 @@ int main(void)
   while (1)
   {
 
-	  as50_read(&ang, 100);
+	  as50_readAngle(&ang, 100);
 	  sprintf(str,"angle: %d \n \r ", ang);
 	  HAL_UART_Transmit_IT(&huart2, str, 22);
 	  HAL_Delay(100);
-
+	  /*
+	  i++;
+	  if (i == 30)
+		  {
+		  	  i = 0;
+			  as50_setZero(100);
+			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  }
+*/
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

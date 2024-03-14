@@ -1,1 +1,4 @@
-../Core/Src/as50xx.c:25:6:as50_read	24	static
+../Core/Src/as50xx.c:34:10:parity	24	static
+../Core/Src/as50xx.c:47:6:as50_readAngle	24	static
+../Core/Src/as50xx.c:68:6:as50_setZero	24	static
+../Core/Src/as50xx.c:78:6:as50_write	16	static
